@@ -29,9 +29,7 @@ namespace ListAPI.Controllers
         [HttpPost]
         public bool Post([FromBody]string value)
         {
-            itemList.Add(new Item() {
-                Name = value
-            });
+            itemList.Add(value);
             return true;
         }
 
