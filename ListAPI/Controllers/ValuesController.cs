@@ -9,8 +9,8 @@ namespace ListAPI.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        static ItemList itemList = new ItemList();
-
+        public ItemList itemList = new ItemList();
+        
         // GET api/values
         [HttpGet]
         public ItemList Get()
