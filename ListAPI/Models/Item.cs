@@ -1,10 +1,10 @@
+using ListAPI.Responses;
 using System;
 
-namespace ListAPI.Controllers
+namespace ListAPI.Models
 {
     public class Item
     {
-
         public Item(string name)
         {
             Name = name;
@@ -20,6 +20,17 @@ namespace ListAPI.Controllers
             Random rnd = new Random();
             SetCategory((Category)rnd.Next(1, Enum.GetNames(typeof(Category)).Length));
             return true;
+        }
+
+        public ItemResponse MapToReponse()
+        {
+            var response = new ItemResponse()
+            {
+                Category = Category,
+                Name = Name,
+                Id = Id
+            };
+            return response;
         }
 
         public bool SetCategory(Category category)

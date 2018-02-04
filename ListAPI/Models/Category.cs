@@ -1,4 +1,4 @@
-namespace ListAPI.Controllers
+namespace ListAPI.Models
 {
     public enum Category
     {

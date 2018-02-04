@@ -1,4 +1,4 @@
-using ListAPI.Controllers;
+using ListAPI.Models;
 using Xunit;
 
 namespace ListAPITest
@@ -8,9 +8,7 @@ namespace ListAPITest
         [Fact]
         public void TestConstructor()
         {
-            var itemlist = new ItemList();
-
-            Assert.Equal(2, itemlist.Count());
+            Assert.Equal(2, ItemList.Count());
         }
     }
 }

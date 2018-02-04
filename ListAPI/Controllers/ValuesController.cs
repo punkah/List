@@ -1,35 +1,32 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ListAPI.Models;
+using ListAPI.Responses;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ListAPI.Controllers
 {
     [Route("api/[controller]")]
     public class ValuesController : Controller
-    {
-        public ItemList itemList = new ItemList();
-        
+    {        
         // GET api/values
         [HttpGet]
-        public ItemList Get()
+        public ItemListResponse Get()
         {
-            return itemList;
+            return ItemList.MapToReponse();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public Item Get(Guid id)
+        public ItemResponse Get(Guid id)
         {
-            return itemList.Get(id);
+            return ItemList.Get(id).MapToReponse();
         }
 
         // POST api/values
         [HttpPost]
         public bool Post([FromBody]string value)
         {
-            itemList.Add(value);
+            ItemList.Add(value);
             return true;
         }
 
@@ -37,7 +34,7 @@ namespace ListAPI.Controllers
         [HttpDelete("{id}")]
         public bool Delete(Guid id)
         {
-            return itemList.Delete(id);
+            return ItemList.Delete(id);
         }
     }
 }
