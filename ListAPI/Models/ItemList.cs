@@ -25,9 +25,11 @@ namespace ListAPI.Models
 
         internal static ItemListResponse MapToReponse()
         {
-            var response = new ItemListResponse();
-            response.Items = new List<ItemResponse>();
-            foreach(var item in Items)
+            var response = new ItemListResponse
+            {
+                Items = new List<ItemResponse>()
+            };
+            foreach (var item in Items)
             {
                 response.Items.Add(new ItemResponse()
                 {

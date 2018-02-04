@@ -19,7 +19,8 @@ namespace ListAPI.Controllers
         [HttpGet("{id}")]
         public ItemResponse Get(Guid id)
         {
-            return ItemList.Get(id).MapToReponse();
+            var ret = ItemList.Get(id)?.MapToReponse();
+            return ret;
         }
 
         // POST api/values
