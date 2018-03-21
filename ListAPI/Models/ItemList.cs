@@ -23,17 +23,14 @@ namespace ListAPI.Models
             return true;
         }
 
-        internal static ItemListResponse MapToReponse()
+        internal static IEnumerable<ItemResponse> MapToReponse()
         {
-            var response = new ItemListResponse
-            {
-                Items = new List<ItemResponse>()
-            };
+            var response = new List<ItemResponse>();
             foreach (var item in Items)
             {
-                response.Items.Add(new ItemResponse()
+                response.Add(new ItemResponse()
                 {
-                    Category = item.Category,
+                    Category = item.Category.ToString(),
                     Name =  item.Name,
                     Id = item.Id
                 });

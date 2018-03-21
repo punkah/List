@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using ListAPI.Models;
 using ListAPI.Responses;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +11,7 @@ namespace ListAPI.Controllers
     {        
         // GET api/values
         [HttpGet]
-        public ItemListResponse Get()
+        public IEnumerable<ItemResponse> Get()
         {
             return ItemList.MapToReponse();
         }

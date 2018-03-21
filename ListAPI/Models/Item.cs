@@ -8,7 +8,7 @@ namespace ListAPI.Models
         public Item(string name)
         {
             Name = name;
-            Id = new Guid();
+            Id = Guid.NewGuid();
             Category = Category.Undefined;
         }
         public Guid Id { get; }
@@ -26,7 +26,7 @@ namespace ListAPI.Models
         {
             var response = new ItemResponse()
             {
-                Category = Category,
+                Category = Category.ToString(),
                 Name = Name,
                 Id = Id
             };
